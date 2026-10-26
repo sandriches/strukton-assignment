@@ -1,0 +1,145 @@
+{
+  "document": "02_Programma_van_Eisen_Dorpsstraat_Gemeente_Rijnhoven.pdf",
+  "model_requested": "claude-sonnet-5-5",
+  "model_served": "claude-sonnet-5-5",
+  "effort": "high",
+  "prompt": "extract_v1.md",
+  "prompt_sha256": "05d71d47a4d61c3ca574fb7b05192874dde1b1910dffa58fb9b9e9ff15341d64",
+  "input_sha256": "1030899aa87e12b0a5d76b6cf4e20265d5475e797ca15b767c407d8d0c690909",
+  "cache_key": "d10b785d1ff2f190376e212da4367f5cb6cbafb57bb48c25301c3279d93c1c50",
+  "created_at": "2026-10-26T11:09:33+00:00",
+  "request_id": "req_011CgQk8rRUcGKz3renD2Jne",
+  "stop_reason": "end_turn",
+  "input_tokens": 4378,
+  "output_tokens": 3824,
+  "candidates": [
+    {
+      "code": null,
+      "text": "Het ontwerp dient aan te sluiten op de in 2024 vastgestelde Mobiliteitsvisie Rijnhoven, waarin de Dorpsstraat is aangewezen als fietsstraat met een maximumsnelheid van 30 km/u.",
+      "section": "2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient aan te sluiten' stelt een verplichting aan het ontwerp."
+    },
+    {
+      "code": null,
+      "text": "De bestaande lindebomen langs de Lindelaan (36 stuks, zie bijlage B) dienen behouden te blijven.",
+      "section": "2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'dienen behouden te blijven' is een verplichting aan het werk."
+    },
+    {
+      "code": null,
+      "text": "Werkzaamheden binnen de kroonprojectie zijn uitsluitend toegestaan onder begeleiding van een gecertificeerd boomtechnisch adviseur.",
+      "section": "2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'uitsluitend toegestaan' beperkt de uitvoering bindend."
+    },
+    {
+      "code": null,
+      "text": "De aansluitende wegvakken buiten het plangebied blijven ongewijzigd.",
+      "section": "2",
+      "type": "Bindend",
+      "doubt": true,
+      "reason": "Kan een afbakening van het plangebied zijn in plaats van een eis aan de opdrachtnemer."
+    },
+    {
+      "code": null,
+      "text": "De rijbaan van de Dorpsstraat wordt uitgevoerd als fietsstraat met een breedte van 4,50 meter, in rood asfalt met een fietsstraatmarkering conform CROW-publicatie 'Fietsstraten in hoofdfietsroutes'.",
+      "section": "3.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'wordt uitgevoerd' met concrete maat en materiaal."
+    },
+    {
+      "code": null,
+      "text": "Het kruispunt Dorpsstraat - Lindelaan dient te worden uitgevoerd als een verhoogd plateau met een hoogte van 12 centimeter en sinusvormige hellingen conform de CROW-richtlijn voor verkeersdrempels en -plateaus.",
+      "section": "3.2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'dient te worden uitgevoerd' met concrete specificaties; loopt over een paginagrens."
+    },
+    {
+      "code": null,
+      "text": "Bij voorkeur worden de hellingen van het plateau uitgevoerd in natuursteen, om aan te sluiten bij het materiaalgebruik in de historische kern.",
+      "section": "3.2",
+      "type": "Wens",
+      "doubt": false,
+      "reason": "'Bij voorkeur' duidt op een wens."
+    },
+    {
+      "code": null,
+      "text": "Langs de Lindelaan worden 24 langsparkeerplaatsen gerealiseerd, met een lengte van minimaal 6,00 meter per parkeerplaats.",
+      "section": "3.3",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'worden gerealiseerd' met aantal en minimale lengte."
+    },
+    {
+      "code": null,
+      "text": "Twee van deze parkeerplaatsen worden ingericht als laadplaats voor elektrische voertuigen, inclusief de benodigde kabelinfrastructuur tot in de laadpaal.",
+      "section": "3.3",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'worden ingericht' stelt een verplichting."
+    },
+    {
+      "code": null,
+      "text": "Bij elke laadplaats wordt een laadpaal met een laadvermogen van minimaal 11 kW geplaatst.",
+      "section": "3.3",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Verplichting met minimaal laadvermogen."
+    },
+    {
+      "code": null,
+      "text": "Het hemelwater van de rijbaan en de trottoirs wordt afgekoppeld van het gemengde stelsel en via een infiltratieriool met een bergingscapaciteit van ten minste 60 millimeter per vierkante meter aangesloten verhard oppervlak in de bodem geïnfiltreerd, waarbij de overloop wordt aangesloten op het bestaande gemengde stelsel ter hoogte van inspectieput R-114.",
+      "section": "4",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'wordt afgekoppeld' en 'geïnfiltreerd' met minimale capaciteit; één bepaling."
+    },
+    {
+      "code": null,
+      "text": "De opdrachtnemer dient voor aanvang van de rioleringswerkzaamheden een rioolinspectie conform NEN-EN 13508-2 uit te voeren van het bestaande stelsel binnen het plangebied en de resultaten binnen tien werkdagen aan de gemeente te rapporteren.",
+      "section": "4",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'dient ... uit te voeren' richt zich direct tot de opdrachtnemer."
+    },
+    {
+      "code": null,
+      "text": "Bewoners en ondernemers aan de Dorpsstraat dienen minimaal tien werkdagen voor aanvang van werkzaamheden voor hun perceel schriftelijk te worden geïnformeerd over de aard, de duur en de bereikbaarheidsmaatregelen.",
+      "section": "5",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'dienen ... te worden geïnformeerd' met termijn."
+    },
+    {
+      "code": null,
+      "text": "Werkzaamheden met een geluidsniveau boven 80 dB(A) aan de gevel zijn uitsluitend toegestaan op werkdagen tussen 07:00 en 19:00 uur.",
+      "section": "5",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'uitsluitend toegestaan' beperkt de uitvoering bindend."
+    },
+    {
+      "code": null,
+      "text": "Bij oplevering dient de opdrachtnemer revisietekeningen aan te leveren in DWG- en PDF-formaat, conform hoofdstuk 9 van het Handboek Openbare Ruimte Rijnhoven.",
+      "section": "6",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "'dient ... aan te leveren' richt zich tot de opdrachtnemer."
+    },
+    {
+      "code": null,
+      "text": "De gemeente streeft ernaar de gereconstrueerde Dorpsstraat feestelijk te openen tijdens de jaarlijkse Lindefeesten in september.",
+      "section": "6",
+      "type": "Wens",
+      "doubt": true,
+      "reason": "'streeft ernaar' wijst op een wens, maar het is een voornemen van de gemeente en geen duidelijke eis aan de opdrachtnemer."
+    }
+  ]
+}

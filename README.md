@@ -4,7 +4,7 @@ A small Python tool that extracts requirements and wishes from PDFs with a text 
 
 Technical case Generative AI Engineer, Strukton. The full approach and its trade-offs are in [PLAN.md](PLAN.md). The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
 
-> **Status:** in progress. Steps 0 (scaffold) and 1 (PDF to text) are done; extraction and evaluation follow.
+> **Status:** in progress. Steps 0 (scaffold), 1 (PDF to text) and 2 (extraction with the language model) are done; verification, Excel output and evaluation follow.
 
 ## Requirements
 
@@ -30,13 +30,30 @@ Then fill in your own `ANTHROPIC_API_KEY` in `.env`. The `.env` file is listed i
 | `ANTHROPIC_API_KEY` | Yes, for extraction | Key for the Anthropic API |
 | `EISEN_MODEL` | No | Use a different model; default `claude-sonnet-5-5` |
 
+### Keys in production
+
+The API key in `.env` is meant for running this case locally. A production application in Azure should not hold a long-lived API key. Two options, neither of which changes the extraction code:
+
+- **Workload identity federation:** the application proves its identity with a short-lived token from Microsoft Entra ID (for example an Azure managed identity), which the Anthropic SDK exchanges for a temporary access token. The SDK switches to this automatically when `ANTHROPIC_FEDERATION_RULE_ID`, `ANTHROPIC_ORGANIZATION_ID`, `ANTHROPIC_SERVICE_ACCOUNT_ID` and `ANTHROPIC_IDENTITY_TOKEN_FILE` are set. It needs a one-time setup by an Anthropic organisation admin (identity provider, federation rule, service account).
+- **Claude via Microsoft Foundry:** call the model inside Strukton's own Azure tenant, which also settles data location and billing through Azure.
+
+Note: an `ANTHROPIC_API_KEY` variable, even an empty one, takes priority over federation, so remove it from the environment when switching.
+
 ## Usage
 
-Extract requirements from the PDFs and write them to Excel (follows in steps 2 to 4):
+Extract requirements from the PDFs in `data/` (writing them to Excel follows in steps 3 and 4):
 
 ```bash
 uv run eisen extract
 ```
+
+Each model response is saved in `output/responses/`. A rerun with the same model, prompt and document reads the saved response instead of calling the model, so it works without an API key and gives the same result. To call the model again anyway:
+
+```bash
+uv run eisen extract --refresh
+```
+
+You can also pass specific PDFs: `uv run eisen extract path/to/document.pdf`.
 
 Compare the output with the reference list (follows in step 5):
 

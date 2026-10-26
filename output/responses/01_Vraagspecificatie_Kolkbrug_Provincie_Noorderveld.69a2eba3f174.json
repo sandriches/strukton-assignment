@@ -1,0 +1,145 @@
+{
+  "document": "01_Vraagspecificatie_Kolkbrug_Provincie_Noorderveld.pdf",
+  "model_requested": "claude-sonnet-5-5",
+  "model_served": "claude-sonnet-5-5",
+  "effort": "high",
+  "prompt": "extract_v1.md",
+  "prompt_sha256": "05d71d47a4d61c3ca574fb7b05192874dde1b1910dffa58fb9b9e9ff15341d64",
+  "input_sha256": "a3613ec0d2f356490a06ff23a0d94eb73730a8daeb0f3b468d69184d4d1dd0be",
+  "cache_key": "69a2eba3f1744ccf9058f7da889843914c8a8b132247c2ed5d0a00a62338ff5b",
+  "created_at": "2026-10-26T11:09:12+00:00",
+  "request_id": "req_011CgQk7NXuUZcuMwcSSyKU8",
+  "stop_reason": "end_turn",
+  "input_tokens": 5090,
+  "output_tokens": 3629,
+  "candidates": [
+    {
+      "code": null,
+      "text": "Bij verwijzingen naar normen geldt de versie die van kracht is op de datum van aankondiging van de aanbesteding.",
+      "section": "Leeswijzer",
+      "type": "Bindend",
+      "doubt": true,
+      "reason": "Bepaling in de leeswijzer over de geldende normversie; onduidelijk of dit als eis bedoeld is."
+    },
+    {
+      "code": "VS-1.1-01",
+      "text": "De Opdrachtnemer dient de werkzaamheden uit te voeren conform de Richtlijnen Ontwerp Kunstwerken (ROK 1.4) en de vigerende Eurocodes, inclusief de Nederlandse nationale bijlagen.",
+      "section": "1.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-1.1-02",
+      "text": "De Opdrachtnemer dient uiterlijk vier weken na gunning een Projectkwaliteitsplan ter acceptatie aan de Opdrachtgever voor te leggen.",
+      "section": "1.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-1.2-01",
+      "text": "De Opdrachtnemer dient alle ontwerpdocumenten in het Nederlands op te stellen.",
+      "section": "1.2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-2.1-01",
+      "text": "De nieuwe brug dient te worden ontworpen voor verkeersklasse LM1 conform NEN-EN 1991-2, met een ontwerplevensduur van 100 jaar.",
+      "section": "2.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-2.1-02",
+      "text": "De doorvaartbreedte van de hoofdoverspanning dient minimaal 12,00 meter te bedragen, gemeten tussen de binnenzijden van de remmingwerken.",
+      "section": "2.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-2.1-03",
+      "text": "De doorvaarthoogte in gesloten stand dient minimaal 2,40 meter te bedragen ten opzichte van het maatgevend hoogwaterpeil van NAP -0,40 m.",
+      "section": "2.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-2.2-01",
+      "text": "De brugleuningen dienen een hoogte van minimaal 1,30 meter te hebben, gemeten vanaf de bovenzijde van het fietspad.",
+      "section": "2.2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dienen' en type Bindend in het document."
+    },
+    {
+      "code": "VS-2.2-02",
+      "text": "De Opdrachtgever wenst dat het brugdek wordt voorzien van een slijtlaag met een levensduur van ten minste 15 jaar.",
+      "section": "2.2",
+      "type": "Wens",
+      "doubt": false,
+      "reason": "Formulering 'wenst' en type Wens in het document."
+    },
+    {
+      "code": null,
+      "text": "Beide functies dienen zoveel mogelijk in stand te blijven gedurende de uitvoering.",
+      "section": "3",
+      "type": "Bindend",
+      "doubt": true,
+      "reason": "Inleidende zin zonder eiscode met 'dienen', maar afgezwakt met 'zoveel mogelijk'; mogelijk geen zelfstandige eis."
+    },
+    {
+      "code": "VS-3.1-01",
+      "text": "Gedurende de uitvoering dient de Kolkbrug voor fietsers en voetgangers bereikbaar te blijven, met uitzondering van maximaal drie aaneengesloten weekenden.",
+      "section": "3.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-3.1-02",
+      "text": "Omleidingsroutes voor gemotoriseerd verkeer dienen minimaal twee weken voor aanvang van een afsluiting te worden gepubliceerd en afgestemd met de wegbeheerders van de aansluitende wegen.",
+      "section": "3.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dienen' en type Bindend in het document."
+    },
+    {
+      "code": "VS-3.2-01",
+      "text": "De scheepvaart dient gedurende de uitvoering te allen tijde doorgang te hebben, met uitzondering van stremmingen die minimaal tien werkdagen vooraf zijn aangemeldt bij de vaarwegbeheerder en die niet langer duren dan 48 uur.",
+      "section": "3.2",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-4.1-01",
+      "text": "De Opdrachtnemer dient voor aanvang van de werkzaamheden een ecologisch werkprotocol op te stellen op basis van de uitgevoerde natuurtoets (bijlage 4).",
+      "section": "4.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dient' en type Bindend in het document."
+    },
+    {
+      "code": "VS-4.1-02",
+      "text": "Trillingen bij de bebouwing aan de Kolkweg 2 tot en met 18 dienen te blijven binnen de grenswaarden van SBR-richtlijn A, categorie 2.",
+      "section": "4.1",
+      "type": "Bindend",
+      "doubt": false,
+      "reason": "Formulering 'dienen' en type Bindend in het document."
+    },
+    {
+      "code": "VS-4.2-01",
+      "text": "De Opdrachtgever wenst dat de houten brugonderdelen worden uitgevoerd in FSC- of PEFC-gecertificeerd hout.",
+      "section": "4.2",
+      "type": "Wens",
+      "doubt": false,
+      "reason": "Formulering 'wenst' en type Wens in het document."
+    }
+  ]
+}
