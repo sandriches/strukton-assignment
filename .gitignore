@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Tests
+.pytest_cache/
+
+# Secrets: never commit the real key
+.env
+
+# Excel lock files and macOS metadata
+~$*.xlsx
+.DS_Store

@@ -1,0 +1,28 @@
+[project]
+name = "eisen"
+version = "0.1.0"
+description = "Extracts requirements and wishes from contract PDFs into Excel for review by a system engineer."
+readme = "README.md"
+authors = [
+    { name = "Richard Corke", email = "45803053+sandriches@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=2.3.0",
+    "openpyxl>=3.1.5",
+    "pydantic>=2.14.1",
+    "pymupdf>=1.27.2.3,<2",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+eisen = "eisen:main"
+
+[build-system]
+requires = ["uv_build>=0.12.13,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
