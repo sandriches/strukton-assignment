@@ -4,7 +4,7 @@ A small Python tool that extracts requirements and wishes from PDFs with a text 
 
 Technical case Generative AI Engineer, Strukton. The full approach and its trade-offs are in [PLAN.md](PLAN.md). The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
 
-> **Status:** in progress. Step 0 (scaffold) is done; extraction and evaluation follow.
+> **Status:** in progress. Steps 0 (scaffold) and 1 (PDF to text) are done; extraction and evaluation follow.
 
 ## Requirements
 
