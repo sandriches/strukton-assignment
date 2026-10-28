@@ -2,7 +2,7 @@
 
 A small Python tool that extracts requirements and wishes from PDFs with a text layer and prepares them in Excel for review by a system engineer. The language model (Claude Sonnet 5.5) finds and classifies the requirements; the code checks that every requirement text appears verbatim in the source and determines the page or page range itself.
 
-Technical case Generative AI Engineer, Strukton. The full approach and its trade-offs were ran through several stages of planning. The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
+Technical case Generative AI Engineer, Strukton. The approach and its trade-offs were planned before any code was written. The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
 
 > **Status:** complete - see [Results](#results) for the scores and [What's missing](#whats-missing) for what a production version needs.
 
