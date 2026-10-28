@@ -11,12 +11,14 @@ from pathlib import Path
 import anthropic
 from dotenv import load_dotenv
 
+from eisen.excel import DocumentResult, write_workbook
 from eisen.extraction import DEFAULT_MODEL, ExtractionError, extract
 from eisen.pdf_text import load_document
 from eisen.verification import verify
 
 DATA_DIR = Path("data")
 OUTPUT_DIR = Path("output")
+WORKBOOK = OUTPUT_DIR / "eisen_voorstellen.xlsx"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -59,6 +61,7 @@ def run_extract(pdfs: list[Path], refresh: bool = False) -> int:
 
     model = os.environ.get("EISEN_MODEL") or DEFAULT_MODEL
     failed = False
+    results = []
     for pdf in pdfs:
         doc = load_document(pdf)
         if len(doc.pages_without_text) == len(doc.pages):
@@ -77,12 +80,21 @@ def run_extract(pdfs: list[Path], refresh: bool = False) -> int:
             continue
 
         proposals = verify(doc, result.candidates)
+        results.append(DocumentResult(doc, result, proposals))
         found = sum(p.found for p in proposals)
         review = sum(p.needs_review for p in proposals)
         source = "opgeslagen antwoord" if result.from_cache else f"nieuw antwoord van {result.meta['model_served']}"
         print(f"{doc.name} ({source}, {result.path})")
         print(f"  {len(proposals)} voorstellen, waarvan {found} letterlijk in het document gevonden")
         print(f"  {len(proposals) - review} op tabblad Voorstellen, {review} op tabblad Te controleren")
+
+    if results:
+        try:
+            write_workbook(WORKBOOK, results)
+        except PermissionError:
+            print(f"Kan {WORKBOOK} niet opslaan; is het bestand nog geopend in Excel?", file=sys.stderr)
+            return 1
+        print(f"Excel-bestand opgeslagen: {WORKBOOK}")
     return 1 if failed else 0
 
 

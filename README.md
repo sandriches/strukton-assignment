@@ -4,7 +4,7 @@ A small Python tool that extracts requirements and wishes from PDFs with a text 
 
 Technical case Generative AI Engineer, Strukton. The full approach and its trade-offs are in [PLAN.md](PLAN.md). The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
 
-> **Status:** in progress. Steps 0 (scaffold), 1 (PDF to text), 2 (extraction with the language model) and 3 (verification) are done; Excel output and evaluation follow.
+> **Status:** in progress. Steps 0 (scaffold), 1 (PDF to text), 2 (extraction with the language model), 3 (verification) and 4 (Excel output) are done; evaluation follows.
 
 ## Requirements
 
@@ -41,11 +41,19 @@ Note: an `ANTHROPIC_API_KEY` variable, even an empty one, takes priority over fe
 
 ## Usage
 
-Extract requirements from the PDFs in `data/` and check every quote against the source (writing them to Excel follows in step 4):
+Extract requirements from the PDFs in `data/`, check every quote against the source and write the result to `output/eisen_voorstellen.xlsx`:
 
 ```bash
 uv run eisen extract
 ```
+
+The workbook has three sheets (in Dutch, like the documents):
+
+| Sheet | Contents |
+|---|---|
+| Voorstellen | Proposals whose text was found verbatim in the PDF: code, text, page (range), section, type, signals, the model's explanation, and an empty *Beoordeling SE* column with a dropdown for the system engineer |
+| Te controleren | Proposals that need a human decision, with the reason: text not found verbatim (shown next to the closest source passage), marked as doubtful by the model, duplicate, or contained in another proposal |
+| Run-info | Per document: which model and prompt produced the output, when, how many quotes were found verbatim, and which header/footer lines were removed |
 
 Each model response is saved in `output/responses/`. A rerun with the same model, prompt and document reads the saved response instead of calling the model, so it works without an API key and gives the same result. To call the model again anyway:
 
