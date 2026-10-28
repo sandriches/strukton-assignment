@@ -11,6 +11,7 @@ from pathlib import Path
 import anthropic
 from dotenv import load_dotenv
 
+from eisen import evaluation
 from eisen.excel import DocumentResult, write_workbook
 from eisen.extraction import DEFAULT_MODEL, ExtractionError, extract
 from eisen.pdf_text import load_document
@@ -19,6 +20,8 @@ from eisen.verification import verify
 DATA_DIR = Path("data")
 OUTPUT_DIR = Path("output")
 WORKBOOK = OUTPUT_DIR / "eisen_voorstellen.xlsx"
+REFERENCE = DATA_DIR / "Referentielijst_oefendocumenten.xlsx"
+REPORT = OUTPUT_DIR / "evaluatie.md"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -50,8 +53,7 @@ def main(argv: list[str] | None = None) -> int:
     load_dotenv()
     if args.command == "extract":
         return run_extract(args.pdfs or sorted(DATA_DIR.glob("*.pdf")), refresh=args.refresh)
-    print(f"'{args.command}' is nog niet geïmplementeerd.", file=sys.stderr)
-    return 1
+    return run_evaluate(WORKBOOK, REFERENCE, REPORT)
 
 
 def run_extract(pdfs: list[Path], refresh: bool = False) -> int:
@@ -96,6 +98,35 @@ def run_extract(pdfs: list[Path], refresh: bool = False) -> int:
             return 1
         print(f"Excel-bestand opgeslagen: {WORKBOOK}")
     return 1 if failed else 0
+
+
+def run_evaluate(workbook: Path, reference: Path, report: Path) -> int:
+    if not workbook.exists():
+        print(f"{workbook} bestaat niet; draai eerst 'eisen extract'.", file=sys.stderr)
+        return 1
+    if not reference.exists():
+        print(f"Referentielijst {reference} niet gevonden.", file=sys.stderr)
+        return 1
+
+    references = evaluation.load_reference(reference)
+    documents, rows = evaluation.load_output(workbook)
+    scores, skipped = [], []
+    for document in documents:
+        items = references.get(evaluation.document_number(document))
+        if items is None:
+            skipped.append(f"{document} (geen referentielijst)")
+            continue
+        scores.append(evaluation.score(document, items, rows))
+    evaluated = {evaluation.document_number(s.document) for s in scores}
+    skipped += [f"referentielijst Doc {n} (document niet in de uitvoer)" for n in sorted(references) if n not in evaluated]
+
+    for s in scores:
+        print(evaluation.summary_line(s))
+    for item in skipped:
+        print(f"Niet geëvalueerd: {item}", file=sys.stderr)
+    evaluation.write_report(report, scores, workbook, reference, skipped)
+    print(f"Rapport opgeslagen: {report}")
+    return 0
 
 
 def _describe(error: Exception) -> str:

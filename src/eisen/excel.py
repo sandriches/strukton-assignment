@@ -21,6 +21,10 @@ from eisen.extraction import Extraction
 from eisen.pdf_text import Document
 from eisen.verification import Proposal
 
+MAIN_SHEET = "Voorstellen"
+REVIEW_SHEET = "Te controleren"
+RUN_SHEET = "Run-info"
+
 REVIEW_CHOICES = ("Goedgekeurd", "Afgekeurd")
 REVIEW_ROWS = 1000  # rows that get the review dropdown, room for manual additions
 
@@ -87,9 +91,9 @@ class DocumentResult:
 def write_workbook(path: Path, results: list[DocumentResult]) -> None:
     workbook = Workbook()
     main = workbook.active
-    main.title = "Voorstellen"
-    review = workbook.create_sheet("Te controleren")
-    run = workbook.create_sheet("Run-info")
+    main.title = MAIN_SHEET
+    review = workbook.create_sheet(REVIEW_SHEET)
+    run = workbook.create_sheet(RUN_SHEET)
 
     _header(main, PROPOSAL_COLUMNS)
     _header(review, REVIEW_COLUMNS)
