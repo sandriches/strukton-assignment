@@ -4,7 +4,7 @@ A small Python tool that extracts requirements and wishes from PDFs with a text 
 
 Technical case Generative AI Engineer, Strukton. The full approach and its trade-offs are in [PLAN.md](PLAN.md). The tool's output (Excel, evaluation report, command-line messages) is in Dutch, like the source documents.
 
-> **Status:** in progress. Steps 0 (scaffold), 1 (PDF to text) and 2 (extraction with the language model) are done; verification, Excel output and evaluation follow.
+> **Status:** in progress. Steps 0 (scaffold), 1 (PDF to text), 2 (extraction with the language model) and 3 (verification) are done; Excel output and evaluation follow.
 
 ## Requirements
 
@@ -41,7 +41,7 @@ Note: an `ANTHROPIC_API_KEY` variable, even an empty one, takes priority over fe
 
 ## Usage
 
-Extract requirements from the PDFs in `data/` (writing them to Excel follows in steps 3 and 4):
+Extract requirements from the PDFs in `data/` and check every quote against the source (writing them to Excel follows in step 4):
 
 ```bash
 uv run eisen extract

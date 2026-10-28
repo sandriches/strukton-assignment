@@ -13,6 +13,7 @@ from dotenv import load_dotenv
 
 from eisen.extraction import DEFAULT_MODEL, ExtractionError, extract
 from eisen.pdf_text import load_document
+from eisen.verification import verify
 
 DATA_DIR = Path("data")
 OUTPUT_DIR = Path("output")
@@ -75,8 +76,13 @@ def run_extract(pdfs: list[Path], refresh: bool = False) -> int:
             failed = True
             continue
 
+        proposals = verify(doc, result.candidates)
+        found = sum(p.found for p in proposals)
+        review = sum(p.needs_review for p in proposals)
         source = "opgeslagen antwoord" if result.from_cache else f"nieuw antwoord van {result.meta['model_served']}"
-        print(f"{doc.name}: {len(result.candidates)} voorstellen ({source}, {result.path})")
+        print(f"{doc.name} ({source}, {result.path})")
+        print(f"  {len(proposals)} voorstellen, waarvan {found} letterlijk in het document gevonden")
+        print(f"  {len(proposals) - review} op tabblad Voorstellen, {review} op tabblad Te controleren")
     return 1 if failed else 0
 
 
